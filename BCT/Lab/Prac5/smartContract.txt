@@ -1,0 +1,51 @@
+pragma solidity ^0.5.0;
+contract SmartParking{
+    struct Parking{
+        bool isParked;
+        uint price;
+        bool isSpecial;
+    }
+    struct Person{
+        bool isGuest;
+        bool isAuthenticated;
+    }
+    
+    Parking[] public parking;
+    Person[] public person;
+
+    function addPerson(bool isGuest,bool isAuthenticated) public {
+        person.push(Person(isGuest,isAuthenticated));
+    }
+
+    function addParking(bool isParked,uint price,bool isSpecial) public {
+        parking.push(Parking(isParked,price,isSpecial));
+    }
+
+    function getVacantPlace(bool isGuest) public view returns(uint){
+            for(uint i=0;i<parking.length;i++){
+                    if(!parking[i].isParked ){
+                        if(isGuest && !parking[i].isSpecial){
+                            return i;
+                        }else if(!isGuest && parking[i].isSpecial){
+                            return i;
+                        }
+                    }
+            }
+            return 1000;
+    }
+
+    function allocateParking(bool isGuest, bool isAuthenticated) public returns(bool){
+        require(isAuthenticated);
+        uint slotIndex=getVacantPlace(isGuest);
+        if(slotIndex==1000){
+            return false;
+        }
+        parking[slotIndex].isParked=true;
+    }
+
+
+
+
+
+
+}

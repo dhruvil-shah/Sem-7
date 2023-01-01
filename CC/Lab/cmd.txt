@@ -1,0 +1,3 @@
+flex prac.c
+gcc lex.yy.c
+Get-Content prac.c | .\a.exe 

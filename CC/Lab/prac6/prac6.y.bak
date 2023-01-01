@@ -1,0 +1,13 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void convertToThreeAddressCode();
+char addToTable(char,char,char);
+int i = 0;
+char tmp='1';
+struct exp{
+char op1,op2,op;
+};
+%}
+%union

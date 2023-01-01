@@ -1,0 +1,18 @@
+
+UNIT 1: Introduction to machine vision and its applications: 
+Fundamentals of machine vision, components of a machine vision system, basic problem of vision: four approaches, brief history, application examples. 
+
+
+UNIT 2: Image Formation and Acquisition:
+Sampling and quantization of image signals, digital image formation, image format and types, image sensors, camera and its types, lenses and optics, lights and colour, pixels and image filters, image acquisition techniques, communication technologies.   
+
+
+UNIT 3: Algorithms for machine vision part 1: Basic image pre-processing operations, filters, intensity operations, threshold techniques
+
+UNIT 5: Vision system integration: Sensors, actuators, selection of vision system components, hardware software integration, 
+
+UNIT 6: Applications: Surface defects detection, 1D/2D barcodes decoding and verification,
+optical character recognition and verification, label inspection, object presence detection,
+object recognition, location and position identification of objects and object dimensions measurement. 
+
+UNIT 7: Case studies and advances: advances in machine vision, 3-D machine vision

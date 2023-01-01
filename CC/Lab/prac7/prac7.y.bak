@@ -1,0 +1,30 @@
+%{
+#include<stdio.h>
+#include <string.h>
+%}
+%token IF ELSE KEYWORD UN FOR ID NUM OPEN CLOSE GT LT EQ NTE GTE LTE AS SC OPENP CLOSEP WHILE OP
+%%
+START: OPEN ST CLOSE {printf("Done"); exit(0);}
+ST : EXP STS | FORST STS | WHILEST STS | IFST STS| IFST STS1 ELSE STS1 | ;
+STS1: EXP STS | FORST STS | WHILEST STS;
+STS: ST  | OPEN ST CLOSE ST | SC STS ;
+IFST: IF OPENP REL CLOSEP   ;
+REL: Z1;
+WHILEST : WHILE OPENP REL CLOSEP ;
+FORST: FOR OPENP EXP1 EXP2 EXP3 CLOSEP ;
+EXP1: EXP  | Z1 | SC | Z R Z SC;
+EXP2 : Z1 SC  | ID AS Z OP Z SC ;
+EXP3: ID UN  | Z | ID AS Z | ;
+EXP: ID UN SC| ID AS Z OP Z1 SC | ID AS Z1 SC| KEYWORD ID AS Z1 SC| KEYWORD ID AS Z OP Z1 SC| KEYWORD ID SC| Z SC ;
+Z1: Z| Z R Z | Z OP Z;
+Z:ID | NUM ;
+R: GT | LT | EQ | NTE | GTE | LTE;
+%%
+int yyerror(){
+printf("some error");
+return 0;
+}
+int main(){
+    yyparse();
+    return 0;
+}
